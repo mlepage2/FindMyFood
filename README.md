@@ -1,70 +1,108 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Project Title
 
-## Available Scripts
+    Leveraging Blockchain to Authenticate Food Origins and Safety
 
-In the project directory, you can run:
 
-### `npm start`
+2. Problem Statement
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    Ensuring the authenticity and safety of food products is a major challenge in today's complex and expanding supply chains. Consumers often question if the products they purchase are truly safe or if they have been affected by recent recalls or disease outbreaks. Labels such as USDA Organic, Certified Naturally Grown, and Non-GMO Project Verified are supposed to guarantee quality, but how can consumers be sure these claims are accurate? Traditional supply chains rely on paper-based and fragmented data systems, leading to information silos and making product tracking time-consuming and error-prone. This lack of traceability and transparency prevents consumers from validating the authenticity of their purchases and lowers their confidence in the safety of their food. There is a critical need for a reliable system that can track and verify the origins of food products while reducing the risks associated with foodborne illnesses and contamination.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+3. Proposed Solution
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    The proposed solution is a blockchain-based system designed to enhance transparency and build consumer trust in the food supply chain. This application allows stakeholders, including farmers, distributors, retailers, and users, to verify the origins of food products. By tracking the sourcing of each product, the application provides a detailed timeline of its journey from the farmer to the consumer. Users can scan a product to access its complete history and specific details. With blockchain technology, each transaction and movement of food products can be recorded and verified on a decentralized, tamper-proof ledger. All participants in the supply chain have access to this shared ledger, ensuring that data is transparent and secure from tampering. Real-time tracking and verification reduce the time needed to trace product origins from days to seconds. This feature is crucial during recalls or disease outbreaks, allowing for quickly identifying affected products, preventing further spread, and ensuring consumer safety. Additionally, it can provide significant financial savings for stores by accurately identifying unaffected products. Support for the verification of quality certifications can also be implemented, such as with labels like USDA Organic and Non-GMO, ensuring that products meet their advertised claims. By providing a transparent and verifiable record of every step in the food production process, this blockchain framework reinforces sustainable manufacturing practices, ethical sourcing, and assures consumers of the authenticity of food labels. 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Objectives
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    The primary objective is to enhance consumer trust in the food they consume by providing a transparent and verifiable system for tracking food origins. This aligns with the need for authenticity and safety in complex supply chains. The project aims to develop an intuitive interface where users can scan and upload a product’s barcode to view its detailed information in a concise, human-readable format. Leveraging blockchain technology as a single source of truth, all supply chain data and product information will be recorded onto the blockchain. Additional objectives include supporting the verification of quality certifications, such as USDA Organic, Non-GMO, and other labels, to build consumer trust in these labels. Ultimately, the project seeks to utilize a decentralized, tamper-proof ledger that is accessible by all stakeholders to validate transparency and reduce the risk of foodborne illnesses and further contamination. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+5. Methodology 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Design and development processes
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Approach 1: Hyperledger Fabric
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    1. Network Setup and Configuration:
+        - Set up a Hyperledger Fabric network using Docker for container orchestration.
+        - Configure the network with relevant channels and peers to ensure secure and efficient data sharing.
+    2. Smart Contract Development:
+        - Develop smart contracts (chaincode) in Node.js to handle transactions related to product tracking and verification.
+        - Implement chaincode to record product data such as origin, processing, and distribution details on the blockchain ledger.
+    3. Backend Development:
+        - Utilize the Fabric SDK to enable the Node.js server to interact with the Hyperledger Fabric network.
+        - Develop APIs for the front-end application to query and submit transactions to the blockchain.
+    4. Front-end Development:
+        - Build the user interface using React, enabling users to scan barcodes and access detailed product histories.
+        - Integrate the front-end with the backend APIs to display real-time data from the blockchain.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Approach 2: Solidity and Hardhat
+    1. Smart Contract Development:
+        - Write smart contracts in Solidity to handle the tracking and verification of food products.
+        - Use Hardhat to compile, test, and deploy the smart contracts on a local blockchain network.
+    2. Backend Development:
+        - Develop a Node.js server to interact with the Ethereum blockchain using web3.js.
+        - Create APIs to facilitate communication between the front-end application and the blockchain.
+    3. Front-end Development:
+        - Develop the user interface using React, enabling barcode scanning and product history access.
+        - Connect the front-end application to the Node.js server to fetch and display blockchain data.
 
-## Learn More
+Tools and tech stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Approach 1: Hyperledger Fabric
+    - Hyperledger Fabric: set up a permissioned blockchain network
+    - Docker: to containerize smart contracts
+    - Node.js: for backend server and smart contract logic
+    - React: a front-end development framework
+    - Fabric SDK enables the Node.js server to interact with the blockchain network.
+    - TypeScript: to implement smart contracts (chaincode)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Approach 2: Solidity and Hardhat
+    - Solidity: to implement smart contracts
+    - JavaScript: for scripting and front-end development
+    - Node.js: backend server
+    - React: a front-end development framework
+    - Tailwind CSS: designing user interface
+    - Hardhat: compile, deploy, and test smart contracts
+    - MetaMask Wallet: to facilitate user interactions with the blockchain
 
-### Code Splitting
+Timeline and milestones
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Development phase 1:
+- Set up development environment and configure dependencies.
+- Establish a Hyperledger Fabric test network and deploy initial smart contracts
+- Begin front-end development using React.
 
-### Analyzing the Bundle Size
+Development phase 2:
+- Develop and test core smart contracts for tracking food products.
+- Integrate the front-end application with the blockchain via Node.js backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Development phase 3:
+- Implement additional features supporting the validation of select food labels and ingredients.
+- Test and deploy final smart contracts and ensure integration with web application. 
 
-### Making a Progressive Web App
+Potential Challenges and Risk Mitigation Strategies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Challenges may include integrating blockchain technology with the front-end UI, managing dependencies, and ensuring data accuracy across the supply chain. A key risk mitigation strategy is maintaining flexibility between the two approaches. If issues arise while interacting with Hyperledger Fabric, development can pivot to using Solidity, Hardhat, and a JavaScript/React stack to maintain progress and adaptability. 
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+6. Expected Outcomes and Impact 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    By providing traceability and transparency, this project helps consumers trust their food choices and enables stakeholders to efficiently manage product recalls. The solution improves the food supply chain sector by determining the origin of products, tracking ingredients, authenticating labels, and encouraging sustainable practices. Not only can it track products to their source, but further implementation can allow for delving deeper into tracing individual ingredients within a product. In the event of contamination, companies often spend significant amounts to prevent affected products from reaching customers. With blockchain, contaminated ingredients and affected batches can be located in seconds, speeding up the recall process and eliminating the need to chase paper trials. This tool is also beneficial in combating food fraud and falsification. Some parties make fraudulent claims by mislabeling products or using improper ingredients. With the ability to have a detailed and verifiable record of each step in the supply chain, it becomes much harder for them to get away with it. This transparency will greatly restore consumer trust in the food they buy. The project targets a wide range of users, including farmers, distributors, retailers, farmers, and consumers, all of whom benefit from a clearer understanding of where their food originates and how it is handled throughout the supply chain. Success and impact can be measured by several factors. First, the accuracy of the information displayed once a product is scanned will be crucial. Additionally, the time required to trace contaminated foods should significantly decrease, from a matter of days to just seconds. Another important metric will be the reliability of the supply chain data, ensuring it accurately reflects the product’s journey through farmers, distributors, and retailers. Meeting these expectations will demonstrate the effectiveness of the solution in enhancing food safety and transparency.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+7. References
+
+- Belski, Vadim, and Dennis Taului. Blockchain for the Food Supply Chain, www.scnsoft.com/blockchain/food-supply-chain.
+
+- van der Bosch, Tommie, et al. “The Power of Blockchain in Revolutionising the Food Industry.” Deloitte Netherlands, 10 Aug. 2023, www2.deloitte.com/nl/nl/pages/risk/articles/the-power-of-blockchain-in-revolutionising-the-food-industry.html.
+
+
+
+
+
+
+
