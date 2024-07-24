@@ -1,4 +1,4 @@
-// const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
+const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 // const JAN_1ST_2030 = 1893456000;
 // const ONE_GWEI = 1_000_000_000n;
@@ -14,18 +14,16 @@
 //   return { lock };
 // });
 
-async function main() {
-  const [deployer] = await ethers.getSigners();
-  console.log("Deploying contracts with the account:", deployer.address);
+const DEFAULT_NAME = "Default Product";
+const DEFAULT_DESCRIPTION = "A default product description";
 
-  const Product = await ethers.getContractFactory("Product");
-  const product = await Product.deploy();
-  console.log("Product contract deployed to:", product.address);
-}
+module.exports = buildModule("ProductModule", (m) => {
+  // Define parameters for the Product contract if necessary
+  const name = m.getParameter("name", DEFAULT_NAME);
+  const description = m.getParameter("description", DEFAULT_DESCRIPTION);
 
-main()
-  .then(() => process.exit(0))
-  .catch(error => {
-    console.error(error);
-    process.exit(1);
-  });
+  // Deploy the Product contract with parameters
+  const product = m.contract("Product", [name, description]);
+
+  return { product };
+});
